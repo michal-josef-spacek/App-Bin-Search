@@ -51,6 +51,9 @@ sub run {
 	);
 
 	my $processed_bits = 0;
+	if ($self->{'_opts'}->{'v'}) {
+		print 'Size of hexadecimal stream: '.$self->{'_bv'}->Size."\n";
+	}
 	foreach (1 .. $self->{'_bv'}->Size) {
 		$processed_bits++;
 		my $tmp = $self->{'_bv'}->Clone;
