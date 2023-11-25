@@ -34,7 +34,7 @@ sub run {
 	if (! getopts('hv', $self->{'_opts'}) || @ARGV < 2
 		|| $self->{'_opts'}->{'h'}) {
 
-		print STDERR "Usage: $0 [-h] [--version] hex_stream search\n";
+		print STDERR "Usage: $0 [-h] [-v] [--version] hex_stream search\n";
 		print STDERR "\t-h\t\tPrint help.\n";
 		print STDERR "\t-v\t\tVerbose mode.\n";
 		print STDERR "\t--version\tPrint version.\n";
