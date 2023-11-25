@@ -72,5 +72,85 @@ sub run {
 
 1;
 
-
 __END__
+
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+App::Bin::Search - Base class for bin-search tool.
+
+=head1 SYNOPSIS
+
+ use App::Bin::Search;
+
+ my $app = App::Bin::Search->new;
+ my $exit_code = $app->run;
+
+=head1 METHODS
+
+=head2 C<new>
+
+ my $app = App::Bin::Search->new;
+
+Constructor.
+
+Returns instance of object.
+
+=head2 C<run>
+
+ my $exit_code = $app->run;
+
+Run.
+
+Returns 1 for error, 0 for success.
+
+=head1 EXAMPLE
+
+=for comment filename=bin_search.pl
+
+ use strict;
+ use warnings;
+
+ use App::Bin::Search;
+
+ # Arguments.
+ @ARGV = (
+         'FFABCD',
+         'D5',
+ );
+
+ # Run.
+ exit App::Bin::Search->new->run;
+
+ # Output like:
+ # TODO
+
+=head1 DEPENDENCIES
+
+L<Bit::Vector>,
+L<Getopt::Std>.
+
+=head1 REPOSITORY
+
+L<https://github.com/michal-josef-spacek/App-Bin-Search>
+
+=head1 AUTHOR
+
+Michal Josef Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
+
+=head1 LICENSE AND COPYRIGHT
+
+© 2023 Michal Josef Špaček
+
+BSD 2-Clause License
+
+=head1 VERSION
+
+0.01
+
+=cut
