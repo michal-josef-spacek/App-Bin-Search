@@ -1,0 +1,79 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use App::Bin::Search;
+
+our $VERSION = 0.01;
+
+# Run.
+exit App::Bin::Search->new->run;
+
+# Print version.
+sub VERSION_MESSAGE {
+	print $VERSION."\n";
+	exit 0;
+}
+
+__END__
+
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+bin-search - Tool to bitwise search of data in hexadecimal stream.
+
+=head1 SYNOPSIS
+
+ bin-search [-h] [--version] search hex_stream
+
+=head1 ARGUMENTS
+
+=over 8
+
+=item * C<-h>
+
+Print help.
+
+=item * C<--version>
+
+Print version of script.
+
+=item * C<search>
+
+Search string (in hexadecimal).
+
+=item * C<hex_stream>
+
+Hexadecimal stream.
+
+=back
+
+=head1 EXAMPLE
+
+ bin-search D5 FFABCD
+
+=head1 REPOSITORY
+
+L<https://github.com/michal-josef-spacek/App-NKC2Wikidata>
+
+=head1 AUTHOR
+
+Michal Josef Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
+
+=head1 LICENSE AND COPYRIGHT
+
+© 2023 Michal Josef Špaček
+
+BSD 2-Clause License
+
+=head1 VERSION
+
+0.01
+
+=cut
