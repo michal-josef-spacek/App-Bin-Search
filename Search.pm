@@ -4,7 +4,6 @@ use strict;
 use warnings;
 
 use Bit::Vector;
-use Error::Pure qw(err);
 use Getopt::Std;
 
 our $VERSION = 0.01;

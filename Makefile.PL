@@ -20,7 +20,6 @@ perl_version 5.006;
 readme_from 'bin/bin-search';
 recursive_author_tests('xt');
 requires 'Bit::Vector' => 0;
-requires 'Error::Pure' => 0;
 requires 'Getopt::Std' => 0;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/App-Bin-Search/issues',
 resources 'homepage' => 'https://github.com/michal-josef-spacek/App-Bin-Search';
