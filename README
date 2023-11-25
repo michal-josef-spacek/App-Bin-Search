@@ -2,30 +2,34 @@ NAME
     bin-search - Tool to bitwise search of data in hexadecimal stream.
 
 SYNOPSIS
-     bin-search [-h] [--version] search hex_stream
+     bin-search [-h] [-v] [--version] search hex_stream
 
 ARGUMENTS
     *       "-h"
 
             Print help.
 
+    *       "-v"
+
+            Verbose mode.
+
     *       "--version"
 
             Print version of script.
-
-    *       "search"
-
-            Search string (in hexadecimal).
 
     *       "hex_stream"
 
             Hexadecimal stream.
 
+    *       "search"
+
+            Search string (in hexadecimal).
+
 EXAMPLE
-     bin-search D5 FFABCD
+     bin-search FFABCD D5
 
 REPOSITORY
-    <https://github.com/michal-josef-spacek/App-NKC2Wikidata>
+    <https://github.com/michal-josef-spacek/App-Bin-Search>
 
 AUTHOR
     Michal Josef Špaček <mailto:skim@cpan.org>
