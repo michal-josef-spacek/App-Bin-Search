@@ -55,8 +55,9 @@ sub run {
 	}
 	foreach (1 .. $self->{'_bv'}->Size) {
 		$processed_bits++;
+
 		my $tmp = $self->{'_bv'}->Clone;
-		$tmp->Resize($self->{'_bv'}->Size - $processed_bits);
+		$tmp->Resize($tmp->Size - $processed_bits);
 		if ($tmp->to_Hex =~ m/^$self->{'_search'}/ms) {
 			print 'Found '.$tmp->to_Hex.' at '.$processed_bits." bit\n";
 		} else {
