@@ -16,6 +16,7 @@ use App::Bin::Search;
 exit App::Bin::Search->new->run;
 
 # Output like:
+# Hexadecimal stream: FFABCD
 # Size of hexadecimal stream: 24
 # Looking for: D5
 # FFABCD at 1bit 

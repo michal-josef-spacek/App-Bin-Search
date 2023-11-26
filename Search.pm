@@ -57,6 +57,11 @@ sub run {
 
 	my $processed_bits = 0;
 	if ($self->{'_opts'}->{'v'}) {
+		if ($self->{'_opts'}->{'b'}) {
+			print "Hexadecimal stream: ".$self->{'_bv'}->to_Bin."\n";
+		} else {
+			print "Hexadecimal stream: ".$self->{'_bv'}->to_Hex."\n";
+		}
 		print 'Size of hexadecimal stream: '.$self->{'_bv'}->Size."\n";
 		if ($self->{'_opts'}->{'b'}) {
 			my $len = length($self->{'_search'}) * 4;
@@ -201,6 +206,7 @@ Returns 1 for error, 0 for success.
  exit App::Bin::Search->new->run;
 
  # Output like:
+ # Hexadecimal stream: FFABCD
  # Size of hexadecimal stream: 24
  # Looking for: D5
  # FFABCD at 1bit 

@@ -73,6 +73,7 @@ stdout_is(
 	'D5',
 );
 $right_ret = <<"END";
+Hexadecimal stream: FFABCD
 Size of hexadecimal stream: 24
 Looking for: D5
 FFABCD at 1bit
@@ -118,6 +119,7 @@ stdout_is(
 	'D5',
 );
 $right_ret = <<"END";
+Hexadecimal stream: 111111111010101111001101
 Size of hexadecimal stream: 24
 Looking for: 11010101
 111111111010101111001101 at 1bit
