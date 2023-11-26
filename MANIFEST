@@ -22,6 +22,7 @@ MANIFEST			This list of files
 META.yml
 README
 Search.pm
+SIGNATURE
 t/App-Bin-Search/01-use.t
 t/App-Bin-Search/02-version.t
 t/App-Bin-Search/03-new.t
