@@ -2,9 +2,13 @@ NAME
     bin-search - Tool to bitwise search of data in hexadecimal stream.
 
 SYNOPSIS
-     bin-search [-h] [-v] [--version] search hex_stream
+     bin-search [-b] [-h] [-v] [--version] search hex_stream
 
 ARGUMENTS
+    *       "-b"
+
+            Print in binary (default hexadecimal).
+
     *       "-h"
 
             Print help.
@@ -27,6 +31,9 @@ ARGUMENTS
 
 EXAMPLE
      bin-search FFABCD D5
+
+     # Output:
+     # Found D5E68 at 8 bit
 
 REPOSITORY
     <https://github.com/michal-josef-spacek/App-Bin-Search>

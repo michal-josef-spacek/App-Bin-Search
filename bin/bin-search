@@ -28,11 +28,15 @@ bin-search - Tool to bitwise search of data in hexadecimal stream.
 
 =head1 SYNOPSIS
 
- bin-search [-h] [-v] [--version] search hex_stream
+ bin-search [-b] [-h] [-v] [--version] search hex_stream
 
 =head1 ARGUMENTS
 
 =over 8
+
+=item * C<-b>
+
+Print in binary (default hexadecimal).
 
 =item * C<-h>
 
@@ -59,6 +63,9 @@ Search string (in hexadecimal).
 =head1 EXAMPLE
 
  bin-search FFABCD D5
+
+ # Output:
+ # Found D5E68 at 8 bit
 
 =head1 REPOSITORY
 
