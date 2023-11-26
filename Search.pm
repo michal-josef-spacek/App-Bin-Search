@@ -69,9 +69,9 @@ sub run {
 		$processed_bits++;
 		if ($self->{'_opts'}->{'v'}) {
 			if ($self->{'_opts'}->{'b'}) {
-				print $self->{'_bv'}->to_Bin.' at '.$processed_bits."bit \n";
+				print $self->{'_bv'}->to_Bin.' at '.$processed_bits."bit\n";
 			} else {
-				print $self->_print_hex.' at '.$processed_bits."bit \n";
+				print $self->_print_hex.' at '.$processed_bits."bit\n";
 			}
 		}
 
