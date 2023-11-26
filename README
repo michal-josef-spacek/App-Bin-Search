@@ -2,7 +2,7 @@ NAME
     bin-search - Tool to bitwise search of data in hexadecimal stream.
 
 SYNOPSIS
-     bin-search [-b] [-h] [-v] [--version] search hex_stream
+     bin-search [-b] [-h] [-v] [--version] hex_stream search
 
 ARGUMENTS
     *       "-b"
