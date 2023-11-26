@@ -5,7 +5,7 @@ use App::Bin::Search;
 use English;
 use File::Object;
 use File::Spec::Functions qw(abs2rel);
-use Test::More 'tests' => 2;
+use Test::More 'tests' => 3;
 use Test::NoWarnings;
 use Test::Output;
 
@@ -34,4 +34,21 @@ stderr_is(
 	},
 	$right_ret,
 	'Run help.',
+);
+
+# Test.
+@ARGV = (
+	'FFABCD',
+	'D5',
+);
+$right_ret = <<"END";
+Found D5E68 at 8 bit
+END
+stdout_is(
+	sub {
+		App::Bin::Search->new->run;
+		return;
+	},
+	$right_ret,
+	'Search D5 in FFABCD.',
 );
