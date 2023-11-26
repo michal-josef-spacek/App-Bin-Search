@@ -19,7 +19,8 @@ if ($OSNAME eq 'MSWin32') {
 	$script =~ s/\\/\//msg;
 }
 my $right_ret = <<"END";
-Usage: $script [-h] [-v] [--version] hex_stream search
+Usage: $script [-b] [-h] [-v] [--version] hex_stream search
+	-b		Print in binary (default hexadecimal).
 	-h		Print help.
 	-v		Verbose mode.
 	--version	Print version.
