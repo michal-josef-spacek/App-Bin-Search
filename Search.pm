@@ -27,13 +27,15 @@ sub run {
 
 	# Process arguments.
 	$self->{'_opts'} = {
+		'b' => 0,
 		'h' => 0,
 		'v' => 0,
 	};
-	if (! getopts('hv', $self->{'_opts'}) || @ARGV < 2
+	if (! getopts('bhv', $self->{'_opts'}) || @ARGV < 2
 		|| $self->{'_opts'}->{'h'}) {
 
-		print STDERR "Usage: $0 [-h] [-v] [--version] hex_stream search\n";
+		print STDERR "Usage: $0 [-b] [-h] [-v] [--version] hex_stream search\n";
+		print STDERR "\t-b\t\tPrint in binary (default hexadecimal).\n";
 		print STDERR "\t-h\t\tPrint help.\n";
 		print STDERR "\t-v\t\tVerbose mode.\n";
 		print STDERR "\t--version\tPrint version.\n";
@@ -48,27 +50,55 @@ sub run {
 		length($self->{'_hex_stream'}) * 4,
 		$self->{'_hex_stream'},
 	);
+	$self->{'_bvs'} = Bit::Vector->new_Hex(
+		length($self->{'_search'}) * 4,
+		$self->{'_search'},
+	);
 
 	my $processed_bits = 0;
 	if ($self->{'_opts'}->{'v'}) {
 		print 'Size of hexadecimal stream: '.$self->{'_bv'}->Size."\n";
-	}
-	foreach (1 .. $self->{'_bv'}->Size) {
-		$processed_bits++;
-
-		my $tmp = $self->{'_bv'}->Clone;
-		$tmp->Resize($tmp->Size - $processed_bits);
-		if ($tmp->to_Hex =~ m/^$self->{'_search'}/ms) {
-			print 'Found '.$tmp->to_Hex.' at '.$processed_bits." bit\n";
+		if ($self->{'_opts'}->{'b'}) {
+			my $len = length($self->{'_search'}) * 4;
+			printf "Looking for: %0${len}s\n", $self->{'_bvs'}->to_Bin;
 		} else {
-			if ($self->{'_opts'}->{'v'}) {
-				print $tmp->to_Hex.' at '.$processed_bits."bit \n";
+			print 'Looking for: '.$self->{'_search'}."\n";
+		}
+	}
+	while ($self->{'_bv'}->Size) {
+		$processed_bits++;
+		if ($self->{'_opts'}->{'v'}) {
+			if ($self->{'_opts'}->{'b'}) {
+				print $self->{'_bv'}->to_Bin.' at '.$processed_bits."bit \n";
+			} else {
+				print $self->_print_hex.' at '.$processed_bits."bit \n";
 			}
 		}
-		$self->{'_bv'}->Move_Left(1);
+
+		my $s = $self->{'_bvs'}->to_Bin;
+		if ($self->{'_bv'}->to_Bin =~ m/^$s/ms) {
+			if ($self->{'_opts'}->{'b'}) {
+				print 'Found '.$self->{'_bv'}->to_Bin.' at '.$processed_bits." bit\n";
+			} else {
+				print 'Found '.$self->_print_hex.' at '.$processed_bits." bit\n";
+			}
+		}
+		$self->{'_bv'}->Resize($self->{'_bv'}->Size - 1);
 	}
 
 	return 0;
+}
+
+sub _print_hex {
+	my $self = shift;
+
+	my $tmp = $self->{'_bv'}->Clone;
+	my $size = $tmp->Size;
+	my $plus = ($size % 4) ? 4 - ($size % 4) : 0;
+	$tmp->Resize($size + $plus);
+	$tmp->Move_Left($plus);
+
+	return $tmp->to_Hex;
 }
 
 1;
