@@ -1,6 +1,9 @@
 bin/bin-search
 Changes
 CONCEPT
+examples/bin_search.pl
+examples/bin_search_bin.pl
+examples/bin_search_verbose.pl
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm
 inc/Module/Install/AuthorTests.pm

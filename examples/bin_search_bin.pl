@@ -7,6 +7,7 @@ use App::Bin::Search;
 
 # Arguments.
 @ARGV = (
+        '-b',
         'FFABCD',
         'D5',
 );
@@ -15,4 +16,4 @@ use App::Bin::Search;
 exit App::Bin::Search->new->run;
 
 # Output like:
-# Found D5E68 at 8 bit
+# Found 11010101111001101 at 8 bit
